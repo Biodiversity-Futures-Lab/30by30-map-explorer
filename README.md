@@ -22,7 +22,9 @@ If you use this application or code, please cite:
 
 > McGinty, C. (2026). 30by30 BII Country Map Explorer: 
 > Biodiversity Trends in Protected Areas and Critical Natural Assets 
-> (Version 1.0) [Source Code]. Natural History Museum, London. https://github.com/Biodiversity-Futures-Lab/30by30-map-explorer
+> (v1.0) [Source Code]. Natural History Museum, London. https://doi.org/10.5281/zenodo.19609849
+
+[![](https://zenodo.org/badge/DOI/10.5281/zenodo.19609849.svg)](https://doi.org/10.5281/zenodo.19609849)
 
 ## Contact
 For questions or issues, please contact: [charlotte.mcginty@nhm.ac.uk](mailto:charlotte.mcginty@nhm.ac.uk)
