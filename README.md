@@ -1,16 +1,31 @@
-# 30by30 Maps - Shiny App
+# 30by30 BII Country Map Explorer
 
-An R Shiny web application for visualizing data and progress toward "30 by 30" conservation goals. This app presents several maps that explore BII change within protected areas and areas deliverying key ecosystem services.
+## Overview
+An interactive Shiny application for exploring biodiversity trends in the context of global 30by30 conservation commitments. The app visualizes the Biodiversity Intactness Index (BII) across countries, showing how biodiversity has changed over time within protected areas (WDPA) and critical natural assets (CNA) identified for ecosystem service delivery.
 
-## Features
+## Live Application
+The live application with full data is available at:
+[]
 
-- Select a country to generate and view maps specific to that country
-- Download individual maps
-- Toggle logo and copywrite on and off
+**Note:** This repository contains the source code only. The map dataset and spatial data files are not included due to size restrictions.
 
-## Project Structure
+## Associated Publication
+> Albaladejo-Robles, G., et al. (in preparation). Biodiversity intactness is declining in areas critical for delivery of nature-based ecosystem services.
 
-- `app.R` — Main Shiny app script
-- `www/` — Static files (logo files)
-- `map-data/` — contains global data layers 
-- `maps/` — contains pre-created maps
+## Data Sources
+- **Biodiversity Intactness Index (BII) v3.1.0**: The Biodiversity Futures Lab, Natural History Museum
+- **World Database on Protected Areas (WDPA)**: UNEP-WCMC and IUCN (2025)
+- **Critical Natural Assets**: Based on Chaplin-Kramer, R., et al. (2023). Mapping the planet's critical natural assets. *Nature Ecology & Evolution*.
+
+## Citation
+If you use this application or code, please cite:
+
+> McGinty, C. (2026). 30by30 BII Country Map Explorer: 
+> Biodiversity Trends in Protected Areas and Critical Natural Assets 
+> (Version 1.0) [Source Code]. Natural History Museum, London. https://github.com/Biodiversity-Futures-Lab/30by30-map-explorer
+
+## Contact
+For questions or issues, please contact: [charlotte.mcginty@nhm.ac.uk](mailto:charlotte.mcginty@nhm.ac.uk)
+
+## License
+See `LICENSE` file for details.
