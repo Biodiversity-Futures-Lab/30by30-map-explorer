@@ -409,6 +409,17 @@ ui <- fluidPage(
                      "Learn more about NHM's 30by30 work →"))
           ),
           
+          # Associated Publication
+          tags$div(
+            style = "background: #e3f2fd; padding: 25px; border-radius: 10px; margin-bottom: 25px; border-left: 5px solid #1976d2;",
+            h3("📄 Associated Publication", style = "font-weight: bold; color: #0d47a1; margin-top: 0;"),
+            tags$div(
+                style = "background: white; padding: 15px; border-radius: 6px; margin-bottom: 15px;",
+                tags$strong(style = "color: #1976d2;", "G. Albaladejo-Robles et al. (2026)."),
+                tags$span(style = "color: #495057;", "Biodiversity intactness is declining in areas critical for delivery of nature-based ecosystem services [Manuscript in preparation].")
+              )
+          ),
+
           # Data Sources
           tags$div(
             style = "background: #e3f2fd; padding: 25px; border-radius: 10px; margin-bottom: 25px; border-left: 5px solid #1976d2;",
@@ -423,12 +434,6 @@ ui <- fluidPage(
             ),
             tags$div(
               style = "background: white; padding: 15px; border-radius: 6px; margin-bottom: 15px;",
-              tags$strong(style = "color: #1976d2;", "Biodiversity intactness is declining in areas critical for delivery of nature-based ecosystem services [Manuscript in preparation]."),
-              br(),
-              tags$span(style = "color: #495057;", "G. Albaladejo-Robles et al. (2026).")
-            ),
-            tags$div(
-              style = "background: white; padding: 15px; border-radius: 6px; margin-bottom: 15px;",
               tags$strong(style = "color: #1976d2;", "World Database on Protected Areas (WDPA)"),
               br(),
               tags$span(style = "color: #495057;", "UNEP-WCMC and IUCN (2025), Cambridge, UK: UNEP-WCMC and IUCN. Available at: ",
@@ -439,6 +444,21 @@ ui <- fluidPage(
               tags$strong(style = "color: #1976d2;", "Critical Natural Assets (Ecosystem Services)"),
               br(),
               tags$span(style = "color: #495057;", "Chaplin-Kramer, R., et al. (2023). Mapping the planet's critical natural assets. Nature Ecology & Evolution.")
+            )
+          ),
+
+          # Source Code 
+          tags$div(
+            style = "background: #e3f2fd; padding: 25px; border-radius: 10px; margin-bottom: 25px; border-left: 5px solid #1976d2;",
+            h3("💻 Source Code", style = "font-weight: bold; color: #0d47a1; margin-top: 0;"),
+            tags$div(
+              style = "background: white; padding: 15px; border-radius: 6px;",
+              tags$span(style = "color: #495057;", 
+                        "The code for this app is available on GitHub: ",
+                        tags$a(href = "https://github.com/Biodiversity-Futures-Lab/30by30-map-explorer", "https://github.com/Biodiversity-Futures-Lab/30by30-map-explorer",
+                        target = "_blank",
+                        style = "color: #1976d2; font-weight: 600; text-decoration: underline;")
+              )
             )
           ),
           
