@@ -1,11 +1,4 @@
 data_location:
-  dir_in_map_data: "map-data"
-  dir_in_country_data: "country-data"
-
-  bii_data: "map-data/bii"
-  WDPA_data: "map-data/WDPA"
-  CNA_data: "map-data/CNAs_terrestrial.tif"
   m49_data_orig: "map-data/m49_countries.shp"
   m49_data: "map-data/m49_countries_edited.shp"
-
-  logo_path: "map-data/NHM_logo.png"
+  logo_path: "www/NHM_logo.png"
