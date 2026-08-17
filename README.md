@@ -4,7 +4,7 @@
 An interactive Shiny application for exploring biodiversity trends in the context of global 30by30 conservation commitments. The app visualizes the Biodiversity Intactness Index (BII) across countries, showing how biodiversity has changed over time within protected areas (WDPA) and critical natural assets (CNA) identified for ecosystem service delivery.
 
 ## Live Application
-The live application with full data is available at: https://shiny.nhm.ac.uk/30by30-map-explorer
+The live application with full data is available at: https://shiny.nhm.ac.uk/30by30-map-explorer/
 
 **Note:** This repository contains the source code only. The map dataset and spatial data files are not included due to size restrictions.
 
