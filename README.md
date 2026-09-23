@@ -21,7 +21,7 @@ If you use this application or code, please cite:
 
 > McGinty, C. (2026). 30by30 BII Country Map Explorer: 
 > Biodiversity Trends in Protected Areas and Critical Natural Assets 
-> (v1.0) [Source Code]. Natural History Museum, London. https://doi.org/10.5281/zenodo.19609849
+> (v1.1) [Source Code]. Natural History Museum, London. https://doi.org/10.5281/zenodo.19609849
 
 [![](https://zenodo.org/badge/DOI/10.5281/zenodo.19609849.svg)](https://doi.org/10.5281/zenodo.19609849)
 
