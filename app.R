@@ -84,8 +84,8 @@ addResourcePath("maps", "maps")
 ui <- fluidPage(
   lang = "en",
   tags$head(
-    tags$title("30by30 BII Country Map Explorer"),
-  ),
+    tags$title("30by30 BII Country Map Explorer")
+  )
   useShinyjs(),
   theme = bslib::bs_theme(
     bootswatch = "flatly",
