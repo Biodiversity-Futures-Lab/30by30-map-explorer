@@ -563,7 +563,7 @@ ui <- fluidPage(
         "font-family: 'Segoe UI', Arial, sans-serif;",
         "letter-spacing: 0.8px;"
       ),
-      "30x30 BII Country Map Explorer"
+      "30by30 BII Country Map Explorer"
     )
   ),
   tabsetPanel(
