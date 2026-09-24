@@ -139,7 +139,22 @@ ui <- fluidPage(
       "
     )),
     tags$style(HTML(
-      ".nav-tabs {
+      ":root {
+        --app-primary: #245aab;
+        --app-primary-dark: #174a9c;
+        --app-primary-border: #1d4787;
+        --app-success: #2e7d32;
+        --app-text: #374151;
+        --app-text-muted: #4b5563;
+        --app-border: #d9dee7;
+        --app-border-light: #e2e8f0;
+        --app-surface: #ffffff;
+        --app-surface-muted: #f8fafc;
+        --app-radius: 10px;
+        --app-shadow: 0 4px 14px rgba(31, 41, 55, 0.06);
+        --app-focus: 0 0 0 3px rgba(36, 90, 171, 0.16);
+      }
+      .nav-tabs {
         border-bottom: 1px solid #9ca3af !important;
       }
       .nav-tabs .nav-link,
@@ -201,11 +216,6 @@ ui <- fluidPage(
         border-radius: 8px !important;
         box-shadow: 0 8px 20px rgba(31, 41, 55, 0.12) !important;
         overflow: hidden;
-      }
-      .country-sidebar #refresh {
-        border-radius: 8px !important;
-        box-shadow: 0 2px 5px rgba(36, 90, 171, 0.2);
-        margin-top: 4px;
       }
       .sidebar-card {
         background: #f8fafc;
@@ -317,16 +327,42 @@ ui <- fluidPage(
         background: #174a9c !important;
         border-color: #123b7a !important;
       }
-      #refresh {
-        background-color: #245aab !important;
-        border-color: #1d4787 !important;
-        color: #ffffff !important;
+      .map-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
       }
-      #refresh:hover,
-      #refresh:focus {
-        background-color: #174a9c !important;
-        border-color: #123b7a !important;
+      .map-icon-button,
+      .map-download-button {
+        align-items: center;
+        background: var(--app-surface) !important;
+        border: 1px solid var(--app-primary-border) !important;
+        border-radius: 6px;
+        color: var(--app-primary) !important;
+        cursor: pointer;
+        display: inline-flex;
+        font-size: 1rem !important;
+        font-weight: 700;
+        height: 34px;
+        justify-content: center;
+        line-height: 1;
+        margin: 0 !important;
+        min-width: 34px;
+        padding: 6px 9px !important;
+        text-decoration: none !important;
+      }
+      .map-icon-button:hover,
+      .map-icon-button:focus-visible,
+      .map-download-button:hover,
+      .map-download-button:focus-visible {
+        background: var(--app-primary) !important;
+        border-color: var(--app-primary-border) !important;
         color: #ffffff !important;
+        outline: none;
+      }
+      .map-icon-button:focus-visible,
+      .map-download-button:focus-visible {
+        box-shadow: var(--app-focus);
       }
       .accessible-link,
       .accessible-link:visited,
@@ -548,7 +584,6 @@ ui <- fluidPage(
             choices = iso3_choices_named,
             selectize = TRUE
           ),
-          actionButton("refresh", "Load Data", class = "small-btn"),
           br(),
           tags$div(
             class = "sidebar-card release-card",
@@ -624,22 +659,46 @@ ui <- fluidPage(
                   "bii_first",
                   click = "bii_first_click"
                 )),
-                downloadButton(
-                  "download_bii_first",
-                  "Download BII map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_first",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII map",
+                    onclick = "Shiny.setInputValue('bii_first_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_first",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII map",
+                    `aria-label` = "Download BII map"
+                  )
                 )
               ),
               div(
                 class = "map-card bii-card",
                 uiOutput("bii_last_header"),
                 withSpinner(imageOutput("bii_last", click = "bii_last_click")),
-                downloadButton(
-                  "download_bii_last",
-                  "Download BII map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_last",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII map",
+                    onclick = "Shiny.setInputValue('bii_last_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_last",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII map",
+                    `aria-label` = "Download BII map"
+                  )
                 )
               ),
               div(
@@ -668,11 +727,23 @@ ui <- fluidPage(
                   click = "overlay_map_click",
                   width = "100%"
                 )),
-                downloadButton(
-                  "download_overlay_map",
-                  "Download overlap map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_overlay_map",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger overlap map",
+                    onclick = "Shiny.setInputValue('overlay_map_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_overlay_map",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download overlap map",
+                    `aria-label` = "Download overlap map"
+                  )
                 )
               )
             )
@@ -688,11 +759,23 @@ ui <- fluidPage(
                   "bii_change",
                   click = "bii_change_click"
                 )),
-                downloadButton(
-                  "download_bii_change",
-                  "Download BII change map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_change",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII change map",
+                    onclick = "Shiny.setInputValue('bii_change_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_change",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII change map",
+                    `aria-label` = "Download BII change map"
+                  )
                 )
               ),
               div(
@@ -702,11 +785,23 @@ ui <- fluidPage(
                   "bii_change_WDPA",
                   click = "bii_change_WDPA_click"
                 )),
-                downloadButton(
-                  "download_bii_change_WDPA",
-                  "Download BII change WDPA map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_change_WDPA",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII change WDPA map",
+                    onclick = "Shiny.setInputValue('bii_change_WDPA_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_change_WDPA",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII change WDPA map",
+                    `aria-label` = "Download BII change WDPA map"
+                  )
                 )
               ),
               div(
@@ -716,11 +811,23 @@ ui <- fluidPage(
                   "bii_change_CNA",
                   click = "bii_change_CNA_click"
                 )),
-                downloadButton(
-                  "download_bii_change_CNA",
-                  "Download BII change CNA map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_change_CNA",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII change CNA map",
+                    onclick = "Shiny.setInputValue('bii_change_CNA_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_change_CNA",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII change CNA map",
+                    `aria-label` = "Download BII change CNA map"
+                  )
                 )
               ),
               div(
@@ -730,11 +837,23 @@ ui <- fluidPage(
                   "bii_change_WDPA_CNA",
                   click = "bii_change_WDPA_CNA_click"
                 )),
-                downloadButton(
-                  "download_bii_change_WDPA_CNA",
-                  "Download BII change WDPA/CNA map",
-                  class = "accessible-download",
-                  style = "position: absolute; left: 10px; bottom: 10px; z-index: 10;"
+                div(
+                  class = "map-actions",
+                  actionButton(
+                    "view_bii_change_WDPA_CNA",
+                    "↗",
+                    class = "map-icon-button",
+                    title = "View larger map",
+                    `aria-label` = "View larger BII change WDPA/CNA map",
+                    onclick = "Shiny.setInputValue('bii_change_WDPA_CNA_click', Date.now(), {priority: 'event'});"
+                  ),
+                  downloadButton(
+                    "download_bii_change_WDPA_CNA",
+                    "↓",
+                    class = "map-download-button",
+                    title = "Download BII change WDPA/CNA map",
+                    `aria-label` = "Download BII change WDPA/CNA map"
+                  )
                 )
               )
             )
